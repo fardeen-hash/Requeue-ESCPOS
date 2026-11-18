@@ -21,8 +21,28 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
 
+    signingConfigs {
+        release {
+            def localProps = new Properties()
+            def localPropsFile = rootProject.file('local.properties')
+            if (localPropsFile.exists()) {
+                localProps.load(new FileInputStream(localPropsFile))
+            }
+            def storeFilePath = localProps.getProperty('RELEASE_STORE_FILE', 'reque-release.jks')
+            if (file(storeFilePath).exists()) {
+                storeFile file(storeFilePath)
+                storePassword localProps.getProperty('RELEASE_STORE_PASSWORD', System.getenv('RELEASE_STORE_PASSWORD') ?: '')
+                keyAlias localProps.getProperty('RELEASE_KEY_ALIAS', System.getenv('RELEASE_KEY_ALIAS') ?: '')
+                keyPassword localProps.getProperty('RELEASE_KEY_PASSWORD', System.getenv('RELEASE_KEY_PASSWORD') ?: '')
+                v1SigningEnabled true
+                v2SigningEnabled true
+            }
+        }
+    }
+
     buildTypes {
         release {
+            signingConfig signingConfigs.release
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
