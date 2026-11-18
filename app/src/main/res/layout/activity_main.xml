@@ -1,0 +1,498 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bgDark"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Top Header Card (Matching Screenshot 2) -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@color/cardDark"
+            android:padding="16dp"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:id="@+id/tv_printer_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Printer001-D048"
+                android:textColor="@color/textPrimary"
+                android:textSize="17sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_printer_mac"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="14:D7:25:68:D0:48"
+                android:textColor="@color/textSecondary"
+                android:textSize="13sp"
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="12dp" />
+
+            <!-- Toggle: Enabled -->
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/switch_enabled"
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:text="Enabled"
+                android:textColor="@color/textPrimary"
+                android:textSize="14sp"
+                android:checked="true"
+                app:thumbTint="@color/accentPurple"
+                app:trackTint="#554B75" />
+
+            <!-- Toggle: Default printer -->
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/switch_default"
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:text="Default printer"
+                android:textColor="@color/textPrimary"
+                android:textSize="14sp"
+                android:checked="true"
+                app:thumbTint="@color/accentPurple"
+                app:trackTint="#554B75" />
+
+            <!-- Toggle: Keep connection alive -->
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/switch_keep_alive"
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:text="Keep connection alive"
+                android:textColor="@color/textPrimary"
+                android:textSize="14sp"
+                android:checked="true"
+                app:thumbTint="@color/accentPurple"
+                app:trackTint="#554B75" />
+
+            <!-- Button: Delete this printer / Select device -->
+            <Button
+                android:id="@+id/btn_delete_printer"
+                android:layout_width="match_parent"
+                android:layout_height="42dp"
+                android:text="Change / Select Printer"
+                android:textColor="@color/textPrimary"
+                android:background="@color/btnDark"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:layout_marginTop="12dp" />
+        </LinearLayout>
+
+        <!-- Form Rows (Matching Screenshot 2) -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="4dp">
+
+            <!-- Driver -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Driver"
+                    android:textColor="@color/textSecondary"
+                    android:textSize="14sp" />
+
+                <Spinner
+                    android:id="@+id/sp_driver"
+                    android:layout_width="140dp"
+                    android:layout_height="wrap_content"
+                    android:theme="@style/ThemeOverlay.AppCompat.Dark" />
+            </LinearLayout>
+
+            <View android:layout_width="match_parent" android:layout_height="1dp" android:background="@color/dividerDark" />
+
+            <!-- Media type -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Media type"
+                    android:textColor="@color/textSecondary"
+                    android:textSize="14sp" />
+
+                <Spinner
+                    android:id="@+id/sp_media_type"
+                    android:layout_width="140dp"
+                    android:layout_height="wrap_content"
+                    android:theme="@style/ThemeOverlay.AppCompat.Dark" />
+            </LinearLayout>
+
+            <View android:layout_width="match_parent" android:layout_height="1dp" android:background="@color/dividerDark" />
+
+            <!-- Dithering -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Dithering"
+                    android:textColor="@color/textSecondary"
+                    android:textSize="14sp" />
+
+                <Spinner
+                    android:id="@+id/sp_dithering"
+                    android:layout_width="140dp"
+                    android:layout_height="wrap_content"
+                    android:theme="@style/ThemeOverlay.AppCompat.Dark" />
+            </LinearLayout>
+
+            <View android:layout_width="match_parent" android:layout_height="1dp" android:background="@color/dividerDark" />
+
+            <!-- DPI -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="DPI"
+                    android:textColor="@color/textSecondary"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/et_dpi"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="end"
+                    android:inputType="number"
+                    android:text="203"
+                    android:textColor="@color/textPrimary"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <View android:layout_width="match_parent" android:layout_height="1dp" android:background="@color/dividerDark" />
+
+            <!-- Paper width (cm) -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Paper width (cm)"
+                    android:textColor="@color/textSecondary"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/et_paper_width"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="end"
+                    android:inputType="numberDecimal"
+                    android:text="8.0"
+                    android:textColor="@color/textPrimary"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <View android:layout_width="match_parent" android:layout_height="1dp" android:background="@color/dividerDark" />
+
+            <!-- Paper height (cm) -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Paper height (cm)"
+                    android:textColor="@color/textSecondary"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/et_paper_height"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="end"
+                    android:inputType="numberDecimal"
+                    android:text="8.0"
+                    android:textColor="@color/textPrimary"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <View android:layout_width="match_parent" android:layout_height="1dp" android:background="@color/dividerDark" />
+
+            <!-- Left margin (cm) -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Left margin (cm)"
+                    android:textColor="@color/textSecondary"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/et_margin_left"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="end"
+                    android:inputType="numberDecimal"
+                    android:text="0.0"
+                    android:textColor="@color/textPrimary"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <View android:layout_width="match_parent" android:layout_height="1dp" android:background="@color/dividerDark" />
+
+            <!-- Top margin (cm) -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Top margin (cm)"
+                    android:textColor="@color/textSecondary"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/et_margin_top"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="end"
+                    android:inputType="numberDecimal"
+                    android:text="0.0"
+                    android:textColor="@color/textPrimary"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <View android:layout_width="match_parent" android:layout_height="1dp" android:background="@color/dividerDark" />
+
+            <!-- Right margin (cm) -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Right margin (cm)"
+                    android:textColor="@color/textSecondary"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/et_margin_right"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="end"
+                    android:inputType="numberDecimal"
+                    android:text="0.0"
+                    android:textColor="@color/textPrimary"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <View android:layout_width="match_parent" android:layout_height="1dp" android:background="@color/dividerDark" />
+
+            <!-- Bottom margin (cm) -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Bottom margin (cm)"
+                    android:textColor="@color/textSecondary"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/et_margin_bottom"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="end"
+                    android:inputType="numberDecimal"
+                    android:text="0.0"
+                    android:textColor="@color/textPrimary"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <View android:layout_width="match_parent" android:layout_height="1dp" android:background="@color/dividerDark" />
+
+            <!-- Speed limit (cm/s) -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Speed limit (cm/s)"
+                    android:textColor="@color/textSecondary"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/et_speed_limit"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="end"
+                    android:inputType="numberDecimal"
+                    android:text="2.0"
+                    android:textColor="@color/textPrimary"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <View android:layout_width="match_parent" android:layout_height="1dp" android:background="@color/dividerDark" />
+
+            <!-- Delay per label (s) -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Delay per label (s)"
+                    android:textColor="@color/textSecondary"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/et_delay_label"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="end"
+                    android:inputType="numberDecimal"
+                    android:text="0.0"
+                    android:textColor="@color/textPrimary"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <View android:layout_width="match_parent" android:layout_height="1dp" android:background="@color/dividerDark" />
+
+            <!-- Skip white space at page end -->
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/switch_skip_whitespace"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:text="Skip white space at page end"
+                android:textColor="@color/textSecondary"
+                android:textSize="14sp"
+                android:checked="true"
+                app:thumbTint="@color/accentPurple"
+                app:trackTint="#554B75" />
+        </LinearLayout>
+
+        <!-- Bottom Action: Print test page (Matching Screenshot 2) -->
+        <Button
+            android:id="@+id/btn_print_test_page"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:text="Print test page"
+            android:textColor="@color/textPrimary"
+            android:background="@color/cardDark"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Collapsible System Status / Quick Actions -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@color/cardDark"
+            android:padding="12dp"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:id="@+id/tv_service_status"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Android Print Service: Active"
+                android:textColor="#34D399"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="8dp">
+
+                <Button
+                    android:id="@+id/btn_save"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:text="Save Settings"
+                    android:textColor="#FFFFFF"
+                    android:background="@color/colorPrimary"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/btn_system_print_settings"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:text="OS Settings"
+                    android:textColor="@color/textPrimary"
+                    android:background="@color/btnDark"
+                    android:textSize="12sp"
+                    android:layout_marginStart="8dp" />
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>

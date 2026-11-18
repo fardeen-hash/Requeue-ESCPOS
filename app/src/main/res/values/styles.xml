@@ -1,0 +1,11 @@
+<resources>
+
+    <!-- Base application theme with sleek dark styling matching RawBT -->
+    <style name="AppTheme" parent="Theme.AppCompat.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowBackground">@color/bgDark</item>
+    </style>
+
+</resources>
